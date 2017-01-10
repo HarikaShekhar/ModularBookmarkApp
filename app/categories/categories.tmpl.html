@@ -1,0 +1,4 @@
+<h1 class="title" ui-sref="booky.categories">BOOKY</h1>
+<ul ng-repeat="category in cgCtrl.categories">
+	<li ui-sref="booky.categories.bookmarks({category: category.name})">{{category.name}}</li>
+</ul>

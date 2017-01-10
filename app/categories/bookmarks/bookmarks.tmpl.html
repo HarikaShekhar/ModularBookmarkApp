@@ -1,0 +1,15 @@
+<h1>{{bmCtrl.getCurrentCategoryName()}}</h1>
+<div ng-repeat="bookmark in bmCtrl.bookmarks | orderBy: title | filter: {category:bmCtrl.getCurrentCategoryName()}">
+	<button type="button" class="btn btn-link" ui-sref="booky.categories.bookmarks.edit({bookmarkId: bookmark.id})"><span class="glyphicon glyphicon-pencil"></span></button>
+	<a href="{{bookmark.url}}" target="_blank">{{bookmark.title}}</a>
+	<button type="button" class="btn btn-link" ng-click="bmCtrl.deleteBookmark(bookmark)"><span class="glyphicon glyphicon-trash"></span></button>
+</div>
+<hr>
+<ui-view>
+	<div ng-if="bmCtrl.getCurrentCategory()">
+		<button type="button" class="btn btn-link" ui-sref="booky.categories.bookmarks.create">
+			<span class="glyphicon glyphicon-plus"></span>
+			Create Bookmark
+		</button>
+	</div>
+</ui-view>
